@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maria-configmap
+data:
+  username: root
+  url: "jdbc:mariadb://mariadb:3306/impaqt" 
+  driverClassName: "org.mariadb.jdbc.Driver"
+  ddlAuto: "update"
