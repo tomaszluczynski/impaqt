@@ -7,4 +7,6 @@ resources:
   - maria-pvc.yaml
   - maria-secret.yaml
   - maria-service.yaml
+  - configurations-pv.yaml
+  - configurations-pvc.yaml
 
