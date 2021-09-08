@@ -9,4 +9,6 @@ resources:
   - maria-service.yaml
   - configurations-pv.yaml
   - configurations-pvc.yaml
+  - container-activemq-service.yaml
+  - container-dataserver-deployment.yaml
 

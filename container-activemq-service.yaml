@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: activemq
+spec:
+  selector:
+    app: container-dataserver
+  ports:
+    - name: activemq
+      protocol: TCP
+      port: 61616
+      targetPort: 61616
+  clusterIP: None

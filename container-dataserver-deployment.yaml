@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container-dataserver-deployment
+  labels:
+    app: container-dataserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: container-dataserver
+  template:
+    metadata:
+      labels:
+        app: container-dataserver
+    spec:
+      containers:
+      - name: impaqt-container-dataserver
+        image: tomaszluczynski/impaqt-container-dataserver:2.11-SNAPSHOT
+        #command: [ "/bin/bash", "-c", "--" ]
+        #args: [ "while true; do sleep 30; done;" ]
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8000
+          name: webserver
+        - containerPort: 61616
+          name: activemq
+        env:
+          - name: SERVER_PORT
+            value: "8000"
+          - name: DATABASE_DDLAUTO
+            value: "update"
+          - name: DATABASE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: maria-configmap
+                key: url
+          - name: DATABASE_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: maria-configmap
+                key: username
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: maria-secret
+                key: password
+        volumeMounts:
+          - name: configurations-persistent-storage
+            subPath: dataserver
+            mountPath: /opt/swissquant/config
+            readOnly: true
+      volumes:
+        - name: configurations-persistent-storage
+          persistentVolumeClaim:
+            claimName: configurations-pv-claim
+            readOnly: true
+      imagePullSecrets:
+      - name: regcred
+
