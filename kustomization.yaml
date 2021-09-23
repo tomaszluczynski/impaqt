@@ -11,4 +11,4 @@ resources:
   - configurations-pvc.yaml
   - container-activemq-service.yaml
   - container-dataserver-deployment.yaml
-
+  - container-wapi-risk-reployment.yaml
