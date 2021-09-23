@@ -26,6 +26,8 @@ spec:
         - containerPort: 61616
           name: activemq
         env:
+          - name: CACHE_TYPE
+            value: "replicated"
           - name: SERVER_PORT
             value: "8000"
           - name: DATABASE_DDLAUTO
