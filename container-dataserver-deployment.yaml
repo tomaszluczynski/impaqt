@@ -26,8 +26,6 @@ spec:
         - containerPort: 61616
           name: activemq
         env:
-          - name: CACHE_TYPE
-            value: "replicated"
           - name: SERVER_PORT
             value: "8000"
           - name: DATABASE_DDLAUTO
@@ -47,6 +45,12 @@ spec:
               secretKeyRef:
                 name: maria-secret
                 key: password
+          - name: CACHE_TYPE
+            value: "replicated"
+          - name: SPRING_CACHE_JCACHE_CONFIG
+            value: "classpath:impaqt-infinispan-cloud.xml"
+          - name: JGROUPS_DNS_QUERY
+            value: "impaqt.svc.cluster.local"
         volumeMounts:
           - name: configurations-persistent-storage
             subPath: dataserver
