@@ -4,6 +4,7 @@ metadata:
   name: container-dataserver-deployment
   labels:
     app: container-dataserver
+    run: jgrp
 spec:
   replicas: 1
   selector:
@@ -13,6 +14,7 @@ spec:
     metadata:
       labels:
         app: container-dataserver
+        deploymentConfig: jgrp
     spec:
       containers:
       - name: impaqt-container-dataserver
