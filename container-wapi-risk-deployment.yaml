@@ -45,7 +45,7 @@ spec:
           - name: SPRING_CACHE_JCACHE_CONFIG
             value: "classpath:impaqt-infinispan-cloud.xml"
           - name: JGROUPS_DNS_QUERY
-            value: "impaqt.svc.cluster.local"
+            value: "impaqt.default.svc.cluster.local"
 
         volumeMounts:
           - name: configurations-persistent-storage
