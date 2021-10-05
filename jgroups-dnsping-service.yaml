@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
-  name: impaqt
+  name: jgroups-dnsping-impaqt
 spec:
   publishNotReadyAddresses: true
   clusterIP: None
