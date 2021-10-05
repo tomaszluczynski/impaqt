@@ -4,7 +4,6 @@ metadata:
   name: container-wapi-risk-deployment
   labels:
     app: container-wapi-risk
-    run: jgrp
 spec:
   replicas: 1
   selector:
@@ -14,7 +13,7 @@ spec:
     metadata:
       labels:
         app: container-wapi-risk
-        deploymentConfig: jgrp
+        deploymentConfig: jgroups-dnsping
     spec:
       containers:
       - name: impaqt-container-wapi-risk
