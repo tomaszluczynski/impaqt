@@ -13,4 +13,5 @@ resources:
   - container-dataserver-deployment.yaml
   - container-dataserver-service.yaml
   - container-wapi-risk-deployment.yaml
+  - container-wapi-risk-service.yaml
   - jgroups-dnsping-service.yaml

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wapi-risk
+spec:
+  type: LoadBalancer
+  selector:
+    app: container-wapi-risk
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
