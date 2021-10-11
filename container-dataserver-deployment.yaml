@@ -59,8 +59,6 @@ spec:
 #            readOnly: true
           - name: config-volume
             mountPath: /opt/swissquant/config
-          - name: users-volume
-            mountPath: /opt/swissquant/users
 
       volumes:
 #        - name: configurations-persistent-storage
@@ -68,12 +66,12 @@ spec:
 #            claimName: configurations-pv-claim
 #            readOnly: true
         - name: config-volume
-          configMap:
-            name: container-dataserver-configmap
-        - name: users-volume
-          configMap:
-            name: users-configmap
-
+          projected:
+            sources:
+              - configMap:
+                  name: container-dataserver-configmap
+              - configMap:
+                  name: users-configmap
       imagePullSecrets:
       - name: regcred
 
