@@ -5,3 +5,6 @@ metadata:
 data:
   users.csv: |
     1,admin,admin,de,ADMINMODIFY
+  admin.htpasswd: |
+    # this line shouldn't contain a user
+    admin:$apr1$HAFOBbgp$Zwl4D9FrRUGLgUeFgWgWJ1
