@@ -60,7 +60,7 @@ spec:
           - name: config-volume
             mountPath: /opt/swissquant/config
           - name: users-volume
-            mountPath: /opt/swissquant/config
+            mountPath: /opt/swissquant/users
 
       volumes:
 #        - name: configurations-persistent-storage
