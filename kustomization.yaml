@@ -12,6 +12,8 @@ resources:
   - container-activemq-service.yaml
   - container-dataserver-deployment.yaml
   - container-dataserver-service.yaml
+  - container-dataserver-configmap.yaml
   - container-wapi-risk-deployment.yaml
   - container-wapi-risk-service.yaml
   - jgroups-dnsping-service.yaml
+  - users-configmap.yaml

@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: container-dataserver-configmap
+data:
+  container.conf: |
+    server {
+      ssl {
+        enabled = false
+      }
+    }
+
+    security {
+      authentication {
+        enabled = true
+        type = HTPASSWD
+        method = FORM
+      }
+
+      htpasswd {
+        file = "./config/admin.htpasswd"
+      }
+    }
+
+    distributed {
+      broker {
+        broker-url = "tcp://activemq:61616"
+      }
+    }
+
+    batch {
+      user {
+        enabled = true
+        watch-file = true
+        file-location = ./config/users.csv
+      }
+    }
+
+    loader {
+      six {
+        enabled = false
+      }
+      oac {
+        enabled = true
+        features {
+          fixedIncome = true
+          riskData = true
+        }
+        supportedInstrumentTypes = ["ISIN"]
+        host = "api-dev.swissquant.tech"
+        port = 443
+        security {
+          httpAuth {
+            enabled = true
+            user = "sq_test_lo"
+            password = "hjg8#61e%Q2ffk45@QfYAJh%O5C!v$7mCp&1iFmW"
+          }
+          https {
+            allowInvalidCertificates = true
+          }
+        }
+      }
+    }

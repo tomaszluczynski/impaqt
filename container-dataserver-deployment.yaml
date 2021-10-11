@@ -18,8 +18,8 @@ spec:
       containers:
       - name: impaqt-container-dataserver
         image: tomaszluczynski/impaqt-container-dataserver:2.11-SNAPSHOT
-        #command: [ "/bin/bash", "-c", "--" ]
-        #args: [ "while true; do sleep 30; done;" ]
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8000
@@ -53,15 +53,27 @@ spec:
           - name: JGROUPS_DNS_QUERY
             value: "jgroups-dnsping-impaqt.default.svc.cluster.local"
         volumeMounts:
-          - name: configurations-persistent-storage
-            subPath: dataserver
+#          - name: configurations-persistent-storage
+#            subPath: dataserver
+#            mountPath: /opt/swissquant/config
+#            readOnly: true
+          - name: config-volume
             mountPath: /opt/swissquant/config
-            readOnly: true
+#          - name: users-volume
+#            mountPath: /opt/swissquant/users
+
       volumes:
-        - name: configurations-persistent-storage
-          persistentVolumeClaim:
-            claimName: configurations-pv-claim
-            readOnly: true
+#        - name: configurations-persistent-storage
+#          persistentVolumeClaim:
+#            claimName: configurations-pv-claim
+#            readOnly: true
+        - name: config-volume
+          configMap:
+            name: container-dataserver-configmap
+#        - name: users-volume
+#          configMap:
+#            name: users-configmap
+
       imagePullSecrets:
       - name: regcred
 
