@@ -18,8 +18,8 @@ spec:
       containers:
       - name: impaqt-container-wapi-risk
         image: tomaszluczynski/impaqt-container-wapi-risk:2.11-SNAPSHOT
-        #command: [ "/bin/bash", "-c", "--" ]
-        #args: [ "while true; do sleep 30; done;" ]
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
         imagePullPolicy: "Always"
         resources:
           requests:
