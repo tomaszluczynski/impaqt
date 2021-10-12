@@ -14,7 +14,7 @@ data:
       authentication {
         enabled = true
         type = HTPASSWD
-        method = BASIC
+        legacyMethod = BASIC
       }
 
       htpasswd {
