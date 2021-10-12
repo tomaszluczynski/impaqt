@@ -54,15 +54,25 @@ spec:
             value: "jgroups-dnsping-impaqt.default.svc.cluster.local"
 
         volumeMounts:
-          - name: configurations-persistent-storage
-            subPath: wapi-risk
+#          - name: configurations-persistent-storage
+#            subPath: wapi-risk
+#            mountPath: /opt/swissquant/config
+#            readOnly: true
+          - name: config-volume
             mountPath: /opt/swissquant/config
-            readOnly: true
       volumes:
-        - name: configurations-persistent-storage
-          persistentVolumeClaim:
-            claimName: configurations-pv-claim
-            readOnly: true
+#        - name: configurations-persistent-storage
+#          persistentVolumeClaim:
+#            claimName: configurations-pv-claim
+#            readOnly: true
+        - name: config-volume
+          projected:
+            sources:
+              - configMap:
+                  name: container-wapi-risk-configmap
+              - configMap:
+                  name: users-configmap
+
       imagePullSecrets:
       - name: regcred
 

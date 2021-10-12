@@ -16,6 +16,11 @@ spec:
       containers:
       - image: mariadb:10.6.4
         name: mariadb
+        resources:
+          requests:
+            memory: "2048Mi"
+          limits:
+            memory: "4096Mi"
         env:
           # Use secret in real usage
         - name: MARIADB_ROOT_PASSWORD
