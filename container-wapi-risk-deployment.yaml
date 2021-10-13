@@ -5,7 +5,7 @@ metadata:
   labels:
     app: container-wapi-risk
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: container-wapi-risk
