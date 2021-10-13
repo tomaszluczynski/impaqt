@@ -57,6 +57,8 @@ spec:
             value: "classpath:impaqt-infinispan-cloud.xml"
           - name: JGROUPS_DNS_QUERY
             value: "jgroups-dnsping-impaqt.default.svc.cluster.local"
+          - name: JAVA_OPTS
+            value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
         volumeMounts:
 #          - name: configurations-persistent-storage
 #            subPath: dataserver
