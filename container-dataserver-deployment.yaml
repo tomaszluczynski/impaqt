@@ -79,6 +79,9 @@ spec:
                   name: container-dataserver-configmap
               - configMap:
                   name: users-configmap
+              - configMap:
+                  name: logging-configmap
+
       imagePullSecrets:
       - name: regcred
 

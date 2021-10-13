@@ -18,3 +18,4 @@ resources:
   - container-wapi-risk-configmap.yaml
   - jgroups-dnsping-service.yaml
   - users-configmap.yaml
+  - logging-configmap.yaml

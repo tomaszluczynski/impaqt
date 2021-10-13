@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logging-configmap
+data:
+  container-logging.yml: |
+    logging:
+      file:
+        name: logs/container.log
+        max-size: 10MB
+        total-size-cap: 100MB
+        clean-history-on-start: true
+      level:
+        root: INFO
+        org.apache.cxf.transport.https.SSLUtils: ERROR
+        ch.swissquant.impaqt: INFO
+        org.eclipse.jetty: INFO
