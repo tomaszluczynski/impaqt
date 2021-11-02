@@ -24,7 +24,7 @@ spec:
           requests:
             memory: "1048Mi"
           limits:
-            memory: "1024Mi"
+            memory: "2024Mi"
         ports:
         - containerPort: 8000
           name: webserver
