@@ -16,6 +16,8 @@ resources:
   - container-wapi-risk-deployment.yaml
   - container-wapi-risk-service.yaml
   - container-wapi-risk-configmap.yaml
+  - container-gateway-deployment.yaml
+  - container-gateway-service.yaml
   - jgroups-dnsping-service.yaml
   - users-configmap.yaml
   - logging-configmap.yaml
