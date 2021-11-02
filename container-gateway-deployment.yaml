@@ -24,7 +24,7 @@ spec:
           requests:
             memory: "1048Mi"
           limits:
-            memory: "2096Mi"
+            memory: "1024Mi"
         ports:
         - containerPort: 8000
           name: webserver
@@ -40,12 +40,7 @@ spec:
           projected:
             sources:
               - configMap:
-                  name: container-dataserver-configmap
-              - configMap:
-                  name: users-configmap
-              - configMap:
-                  name: logging-configmap
-
+                  name: container-gateway-configmap
       imagePullSecrets:
       - name: regcred
 
