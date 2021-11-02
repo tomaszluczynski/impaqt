@@ -33,7 +33,7 @@ spec:
             value: "8000"
         volumeMounts:
           - name: config-volume
-            mountPath: /opt/swissquant
+            mountPath: /opt/swissquant/config
 
       volumes:
         - name: config-volume
