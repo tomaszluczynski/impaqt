@@ -18,9 +18,9 @@ spec:
         name: mariadb
         resources:
           requests:
-            memory: "2048Mi"
+            memory: "1024Mi"
           limits:
-            memory: "4096Mi"
+            memory: "2048Mi"
         env:
           # Use secret in real usage
         - name: MARIADB_ROOT_PASSWORD

@@ -17,14 +17,14 @@ spec:
       containers:
       - name: impaqt-container-gateway
         image: tomaszluczynski/impaqt-container-gateway:2.11-SNAPSHOT
-        command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
+        #command: [ "/bin/bash", "-c", "--" ]
+        #args: [ "while true; do sleep 30; done;" ]
         imagePullPolicy: "Always"
         resources:
           requests:
-            memory: "1048Mi"
+            memory: "1024Mi"
           limits:
-            memory: "2024Mi"
+            memory: "2048Mi"
         ports:
         - containerPort: 8000
           name: webserver

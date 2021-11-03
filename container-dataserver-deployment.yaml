@@ -23,9 +23,9 @@ spec:
         imagePullPolicy: "Always"
         resources:
           requests:
-            memory: "2048Mi"
+            memory: "1024Mi"
           limits:
-            memory: "4096Mi"
+            memory: "2048Mi"
         ports:
         - containerPort: 8000
           name: webserver
@@ -60,18 +60,10 @@ spec:
           - name: JAVA_OPTS
             value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
         volumeMounts:
-#          - name: configurations-persistent-storage
-#            subPath: dataserver
-#            mountPath: /opt/swissquant/config
-#            readOnly: true
           - name: config-volume
             mountPath: /opt/swissquant/config
 
       volumes:
-#        - name: configurations-persistent-storage
-#          persistentVolumeClaim:
-#            claimName: configurations-pv-claim
-#            readOnly: true
         - name: config-volume
           projected:
             sources:

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: container-swagger-ui-configmap
+data:
+  container.conf: |
+    security {
+      authentication {
+        enabled = true
+        type = HTPASSWD
+        legacyMethod = BASIC
+      }
+
+      htpasswd {
+        file = "/opt/swissquant/config/admin.htpasswd"
+      }
+    }
+

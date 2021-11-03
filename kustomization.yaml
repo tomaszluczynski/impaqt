@@ -7,8 +7,6 @@ resources:
   - maria-pvc.yaml
   - maria-secret.yaml
   - maria-service.yaml
-  - configurations-pv.yaml
-  - configurations-pvc.yaml
   - container-activemq-service.yaml
   - container-dataserver-deployment.yaml
   - container-dataserver-service.yaml
@@ -19,6 +17,9 @@ resources:
   - container-gateway-deployment.yaml
   - container-gateway-service.yaml
   - container-gateway-configmap.yaml
+  - container-swaggerui-deployment.yaml
+  - container-swaggerui-configmap.yaml
+  - container-swaggerui-service.yaml
   - jgroups-dnsping-service.yaml
   - users-configmap.yaml
   - logging-configmap.yaml

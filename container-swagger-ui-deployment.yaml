@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: container-wapi-risk-deployment
+  name: container-swagger-ui-deployment
   labels:
-    app: container-wapi-risk
+    app: container-swagger-ui
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: container-wapi-risk
+      app: container-swagger-ui
   template:
     metadata:
       labels:
-        app: container-wapi-risk
-        deploymentConfig: jgroups-dnsping
+        app: container-swagger-ui
     spec:
       containers:
-      - name: impaqt-container-wapi-risk
-        image: tomaszluczynski/impaqt-container-wapi-risk:2.11-SNAPSHOT
+      - name: impaqt-container-swaggerui
+        image: tomaszluczynski/impaqt-container-swagger-ui:2.11-SNAPSHOT
         #command: [ "/bin/bash", "-c", "--" ]
         #args: [ "while true; do sleep 30; done;" ]
         imagePullPolicy: "Always"
@@ -27,10 +26,13 @@ spec:
           limits:
             memory: "2048Mi"
         ports:
-          - containerPort: 8000
+        - containerPort: 8000
+          name: webserver
         env:
           - name: SERVER_PORT
             value: "8000"
+          - name: DATABASE_DDLAUTO
+            value: "validate"
           - name: DATABASE_URL
             valueFrom:
               configMapKeyRef:
@@ -46,33 +48,17 @@ spec:
               secretKeyRef:
                 name: maria-secret
                 key: password
-          - name: CACHE_TYPE
-            value: "replicated"
-          - name: SPRING_CACHE_JCACHE_CONFIG
-            value: "classpath:impaqt-infinispan-cloud.xml"
-          - name: JGROUPS_DNS_QUERY
-            value: "jgroups-dnsping-impaqt.default.svc.cluster.local"
-
         volumeMounts:
-#          - name: configurations-persistent-storage
-#            subPath: wapi-risk
-#            mountPath: /opt/swissquant/config
-#            readOnly: true
           - name: config-volume
             mountPath: /opt/swissquant/config
       volumes:
-#        - name: configurations-persistent-storage
-#          persistentVolumeClaim:
-#            claimName: configurations-pv-claim
-#            readOnly: true
         - name: config-volume
           projected:
             sources:
               - configMap:
-                  name: container-wapi-risk-configmap
+                  name: container-swagger-ui-configmap
               - configMap:
                   name: users-configmap
-
       imagePullSecrets:
       - name: regcred
 
