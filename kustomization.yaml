@@ -17,9 +17,9 @@ resources:
   - container-gateway-deployment.yaml
   - container-gateway-service.yaml
   - container-gateway-configmap.yaml
-  - container-swaggerui-deployment.yaml
-  - container-swaggerui-configmap.yaml
-  - container-swaggerui-service.yaml
+  - container-swagger-ui-deployment.yaml
+  - container-swagger-ui-configmap.yaml
+  - container-swagger-ui-service.yaml
   - jgroups-dnsping-service.yaml
   - users-configmap.yaml
   - logging-configmap.yaml
