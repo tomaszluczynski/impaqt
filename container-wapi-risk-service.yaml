@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: wapi-risk
 spec:
-  type: LoadBalancer
   selector:
     app: container-wapi-risk
   ports:

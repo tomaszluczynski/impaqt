@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: dataserver
 spec:
-  type: LoadBalancer
   selector:
     app: container-dataserver
   ports:
