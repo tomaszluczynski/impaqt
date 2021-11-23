@@ -4,6 +4,7 @@ metadata:
   name: container-wapi-risk-configmap
 data:
   container.conf: |
+    cache.type = REPLICATED
     server {
       ssl {
         enabled = false
