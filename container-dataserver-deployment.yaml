@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: impaqt-container-dataserver
-        image: tomaszluczynski/impaqt-container-dataserver:2.11-SNAPSHOT
+        image: tomaszluczynski/impaqt-container-dataserver:2.12-SNAPSHOT
         #command: [ "/bin/bash", "-c", "--" ]
         #args: [ "while true; do sleep 30; done;" ]
         imagePullPolicy: "Always"
