@@ -31,6 +31,8 @@ spec:
         env:
           - name: SERVER_PORT
             value: "8000"
+          - name: NETTY_HTTP_SERVER_ACCESSLOGENABLED
+            value: "true"
         volumeMounts:
           - name: config-volume
             mountPath: /opt/swissquant/config
